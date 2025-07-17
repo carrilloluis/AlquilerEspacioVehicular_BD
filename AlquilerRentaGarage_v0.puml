@@ -1,0 +1,36 @@
+@startuml
+	skin rose
+	hide circle
+	hide empty members
+	
+	entity Vehículo {
+		*id : INTEGER
+		placa : VARCHAR
+		tipo_vehículo : INTEGER
+		observación : TEXT
+	}
+	entity Cliente {
+		*id : INTEGER
+		nombres : VARCHAR
+		apellidos : VARCHAR
+		documento_identidad : VARCHAR
+	}
+	entity LugarParqueo {
+		*id : INTEGER
+		referencia_x : INTEGER
+		referencia_y : INTEGER
+		piso : INTEGER
+	}
+	entity AlquilerLugarParqueo {
+		*id : INTEGER 
+		id_vehículo : INTEGER
+		id_cliente : INTEGER  
+		id_lugar_parqueo : INTEGER
+		hora_inicio : CHAR
+		hora_conclusión : CHAR
+	}
+
+	AlquilerLugarParqueo }|--|| Vehículo
+	AlquilerLugarParqueo }|--|| Cliente
+	AlquilerLugarParqueo }o--|| LugarParqueo
+@enduml
